@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-
+  post 'welcome/index' 
   root 'welcome#index'
 
   resources :users, except: [:edit, :update] do

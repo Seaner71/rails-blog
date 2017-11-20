@@ -8,3 +8,4 @@
 
 user_1 = User.create(username: "Sean")
 post_1 = user_1.posts.create(title: 'Hello World', content: "lorem ipsum fasdfsadhffhdsajhfdsjhfsdajhfjdas")
+comment_1 = post_1.comments.create(name: "what u talking about?")
