@@ -1,0 +1,13 @@
+<h1>My Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+  <li>
+    <%= link_to post.title %>
+
+    <% end %>
+  </li>
+
+</ul>
+
+<%= link_to 'Back', @post.user %>
