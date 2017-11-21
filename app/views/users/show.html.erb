@@ -1,5 +1,8 @@
 <h1><%= @user.username %></h1>
 <h3><%= @user.username %>'s Posts</h3>
+
+<%= link_to 'Delete', @user, method: 'delete', local: true %>
+
 <ul>
   <%= 'No posts yet' if @user.posts.empty? %>
 
@@ -28,5 +31,4 @@
   <% end %>
 </div>
 
-<%= link_to 'Delete', @user, method: 'delete', local: true %> -
 <%= link_to 'Back', users_path %>

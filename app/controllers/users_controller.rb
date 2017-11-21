@@ -20,6 +20,10 @@ class UsersController < ApplicationController
   end
   def show
   end
+  def destroy
+    @user.destroy
+    redirect_to users_path
+  end
   private
 
     def user_params
