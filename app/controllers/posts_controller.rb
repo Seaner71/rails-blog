@@ -8,6 +8,9 @@ class PostsController < ApplicationController
     @posts = Post.all
 
   end
+  def index
+    @posts = Post.all
+  end
   def create
     # we don't need @ - (user as instance variable) because we only need instance variables when we need to render something in the view.  The point of having an instance variable in any of our controller methods, IS THAT THEY ARE THEN ACCESSIBLE BY OUR VIEW.  IF A VARIABLE IS NOT AN INSTANCE VARIABLE (@) THEN THE VIEW DOES NOT HAVE ACCESS TO THAT VARIABLE.
     user = User.find_by_id(params[:user_id])

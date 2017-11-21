@@ -1,0 +1,7 @@
+<% @posts.each do |post| %>
+  <li>
+    <%= link_to post.title %> -
+    Posted on: <%= post.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
+  </li>
+<% end %>
+</ul>
