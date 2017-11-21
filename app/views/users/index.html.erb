@@ -4,7 +4,13 @@
   <% @users.each do |user| %>
   <li>
     <%= link_to user.username, user %>
-    <%=  user.posts.last.title %>
+    <ul>
+    <%lastpost = (user.posts.last.id) %>
+    <% lastpost_minus = (user.posts.last.id)-1%>
+    <% (lastpost).downto(lastpost_minus).each do |i| %>
+    <li><%= user.posts.find_by_id(i).title %> </li>
+    <% end %>
+    </ul>
     <% end %>
   </li>
 

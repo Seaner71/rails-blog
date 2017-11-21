@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: [:show, :destroy]
+  before_action :get_user, only: [:show, :destroy, :edit]
   def index
     @users = User.all
   end
@@ -17,6 +17,9 @@ class UsersController < ApplicationController
       redirect_to new_user_path
       # remember, new_user_path is the prefix accessible from running rake routes
     end
+  end
+  def edit
+    @user = User.find_by_id(params[:id])
   end
   def show
   end
