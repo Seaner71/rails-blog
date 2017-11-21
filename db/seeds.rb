@@ -9,3 +9,7 @@
 user_1 = User.create(username: "Sean")
 post_1 = user_1.posts.create(title: 'Hello World', content: "lorem ipsum fasdfsadhffhdsajhfdsjhfsdajhfjdas")
 comment_1 = post_1.comments.create(name: "what u talking about?")
+
+user_2 = User.create(username: "Frank")
+post_2 = user_2.posts.create(title: 'Regexp', content: "why Regexp are a difficult concept to get your head around")
+comment_2 = post_2.comments.create(name: "i agree")
