@@ -13,12 +13,21 @@
     </li>
   <% end %>
 </ul>
-#TODO - add a commment
-<br>
-<button type="button" name="button" >Comment</button>
 
-<br>
 <%= link_to 'Back to posts', posts_path %>
 
 
 <!-- link_to book.title, author_book_path(@author, book)  -->
+
+<!-- Comments add need hidden fields I believe to have the comments add -->
+<div>
+  <h3>Add a comment</h3>
+  <%= form_with(model: User, local: true) do |f| %>
+    <%= hidden_field_tag :post_id, @post.id %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.select :tag_ids, options_from_collection_for_select(Tag.all, 'id', 'name') %>
+    <%= f.submit "commment" %>
+  <% end %>
+</div>

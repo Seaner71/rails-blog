@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    redirect_to '/', notice: "You are already logged in" if logged_in?
+    # redirect_to '/', notice: "You are already logged in" if logged_in?
     @user = User.new
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       # The \@\user parameter pulls the current user info from the get_user private method below
     else
       redirect_to '/signup', notice: "An error prevented sign up"
-      # remember, new_user_path is the prefix accessible from running rake routes
+
     end
   end
   def edit
