@@ -24,10 +24,10 @@
   <h3>Add a comment</h3>
   <%= form_with(model: User, local: true) do |f| %>
     <%= hidden_field_tag :post_id, @post.id %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
     <br>
-    <%= f.select :tag_ids, options_from_collection_for_select(Tag.all, 'id', 'name') %>
+    <%# f.select :tag_ids, options_from_collection_for_select(Tag.all, 'id', 'name') %>
     <%= f.submit "commment" %>
   <% end %>
 </div>
