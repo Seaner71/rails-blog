@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  # need bcrypt gem for this  - seems to be working
   has_secure_password
   has_many :posts, dependent: :destroy
   # comments seeding issue - $TODO figure out why comments not generating

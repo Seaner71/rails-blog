@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
         # session
       session[:user_id] = @user.id
-      redirect_to 'user_path(@user)'
+      redirect_to user_path(@user), notice: "Successfully signed up"
       # remember, user_path is the prefix accessible from running rake routes.
       # The \@\user parameter pulls the current user info from the get_user private method below
     else
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:username)
+      params.require(:user).permit(:username, :password)
     end
 
     def get_user

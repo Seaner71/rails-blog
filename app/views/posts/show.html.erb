@@ -7,15 +7,17 @@
 
   <% @post.comments.each do |comment| %>
     <li>
-      <%= comment.text %> 
+      <%= comment.text %> by:
       <%= comment.user.username %>
       <%= comment.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
     </li>
   <% end %>
 </ul>
+#TODO - add a commment
+<br>
+<button type="button" name="button" >Comment</button>
 
-
-
+<br>
 <%= link_to 'Back to posts', posts_path %>
 
 
