@@ -1,10 +1,13 @@
 <% @posts.each do |post| %>
   <li>
-    <%= link_to post.title %> - BROKEN LINK -
-    <%= post.comments.name %>
+    <%= link_to post.title, post %>
+    <br>
+     ?????? doesnt belong here but still need to link commments<%= post.comments.name %>
+    <br>
+
+    posted by: <%= post.user.username %>
+    <br>
     Posted on: <%= post.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
   </li>
 <% end %>
 </ul>
-
-<%= @posts.second.title %>

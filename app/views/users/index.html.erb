@@ -5,11 +5,10 @@
   <li>
     <%= link_to user.username, user %>
     <ul>
-    <%lastpost = (user.posts.last.id) %>
-    <% lastpost_minus = (user.posts.last.id)-1%>
-    <% (lastpost).downto(lastpost_minus).each do |i| %>
-    <li><%= user.posts.find_by_id(i).title %> </li>
-    <% end %>
+
+      <% user.posts.last(3).reverse.each do |post| %>
+      <li><%= link_to post.title, post %> </li> 
+      <% end %>
     </ul>
     <% end %>
   </li>

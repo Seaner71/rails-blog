@@ -5,11 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
 
-user_1 = User.create(username: "Sean")
-post_1 = user_1.posts.create(title: 'Hello World', content: "lorem ipsum fasdfsadhffhdsajhfdsjhfsdajhfjdas")
-comment_1 = post_1.comments.create(name: "what u talking about?")
+User.create(username: "Sean")
+Post.create(title: 'Hello World', content: "lorem ipsum fasdfsadhffhdsajhfdsjhfsdajhfjdas")
+# Comment.create(text: "what u talking about?", post_id: 1, user_id: 1)
 
-user_2 = User.create(username: "Frank")
-post_2 = user_2.posts.create(title: 'Regexp', content: "why Regexp are a difficult concept to get your head around")
-comment_2 = post_2.comments.create(name: "i agree")
+User.create(username: "Frank")
+Post.create(title: 'Regexp', content: "why Regexp are a difficult concept to get your head around")
+# Comment.create(text: "i agree", post_id: 2, user_id: 2)
+
+user_3 = User.create(username: 'test')
+post_3 = user_3.posts.create(title: 'test title', content: 'test content')
+comment_3 = post_3.comments.create(text: 'test comment')
