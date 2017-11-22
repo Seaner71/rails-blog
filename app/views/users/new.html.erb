@@ -1,2 +1,18 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign up</h1>
+
+<%= form_with(model: @user, local: true) do |f| %>
+
+<div class="form-group">
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+</div>
+
+<div class="form-group">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+
+<div class="form-group">
+  <%= f.submit "Sign up"%>
+</div>
+<% end %>
