@@ -1,11 +1,13 @@
 # README
 
-Blog application built using rails 
+## Blog application built using rails 
 
-Ruby Version 2.3.3
-Rails Version 5.1.4
+* Ruby Version 2.3.3
+* Rails Version 5.1.4
 
-Things you may want to cover:
+### Apllication similar to tumblr, a user can create a blog post and comment on other blog posts
+
+- uses 3 models *User* *Post* and *Comment* 
 
 * Ruby version
 
