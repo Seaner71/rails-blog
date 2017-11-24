@@ -1,13 +1,20 @@
-<% @posts.each do |post| %>
+<% @posts.last(10).reverse_each do |post| %>
   <li>
     <%= link_to post.title, post %>
     <br>
-     ?????? doesnt belong here but still need to link commments<%= post.comments.name %>
-    <br>
-
     posted by: <%= post.user.username %>
     <br>
     Posted on: <%= post.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
+    <br>
+      <%= 'No Comments yet' if post.comments.empty? %>
+    <br>
+    <ul>
+      <% post.comments.last(3).reverse.each do |comment| %>
+      <li><%= comment.text %> </li>
+      <% end %>
+    </ul>
+
+
   </li>
 <% end %>
 </ul>

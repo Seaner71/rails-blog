@@ -18,15 +18,18 @@ class UsersController < ApplicationController
       # remember, user_path is the prefix accessible from running rake routes.
       # The \@\user parameter pulls the current user info from the get_user private method below
     else
-      redirect_to '/signup', notice: "An error prevented sign up"
+      redirect_to '/signup', notice: "An error prevented sign up: \n#{@user.errors.full_messages.join('/n')}"
 
     end
   end
   def edit
     @user = User.find_by_id(params[:id])
+    @current_user = User.find_by_id(session[:user_id])  
   end
   def show
-    @user = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(params[:id])
+    @current_user = User.find_by_id(session[:user_id])
+
   end
   def destroy
     @user.destroy

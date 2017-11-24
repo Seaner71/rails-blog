@@ -1,6 +1,12 @@
 <h1><%= @user.username %></h1>
 
 
+
+
 <%= link_to 'Back', user_path %>
-<%= link_to 'Delete', @user, method: 'delete', local: true %>
+
+
+  <% if @user == @current_user %>
 <%= link_to "Edit User Details", @user, method: 'post', local: true %>
+  <%= link_to 'Delete', @user, method: 'delete', local: true %>
+  <% end %>

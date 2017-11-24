@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_username(params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to '/', notice: "Successfully loggen in!"
+      redirect_to '/', notice: "Successfully logged in!"
     else
       redirect_to '/signin', notice: "Unkown username and/or password"
     end
