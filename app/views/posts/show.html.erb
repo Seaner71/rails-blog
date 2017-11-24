@@ -7,16 +7,30 @@
 
   <% @post.comments.each do |comment| %>
     <li>
-      <%= comment.text %> 
+      <%= comment.text %> by:
       <%= comment.user.username %>
       <%= comment.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
     </li>
   <% end %>
 </ul>
 
-
-
 <%= link_to 'Back to posts', posts_path %>
 
 
 <!-- link_to book.title, author_book_path(@author, book)  -->
+
+<!-- Comments add need hidden fields I believe to have the comments add -->
+
+<div>
+  <h3>Add a comment</h3>
+  <%= form_with(model: @comment, local: true ) do |f| %>
+    <%# had tried hidden field to get comment form to all create %>
+    <%# hidden_field_tag :post_id, @post.id %>
+    <%= f.label :text %>
+    <br>
+    <%= f.text_area :text %>
+    <br>
+    <%# f.select :tag_ids, options_from_collection_for_select(Tag.all, 'id', 'name') %>
+    <%= f.submit "commment" %>
+  <% end %>
+</div>

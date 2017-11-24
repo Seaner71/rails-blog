@@ -9,6 +9,19 @@
   </head>
 
   <body>
+
+      <p id="notice"><%= notice %></p>
+      <nav>
+      <%= link_to 'Log Out', '/logout', {method: 'post', local: true} if logged_in? %>
+      <% if !logged_in? %>
+        <%= link_to "Sign up", '/signup' %>
+        <%= link_to "Sign in", '/signin' %>
+          
+      <% end %>
+
+    </nav>
+
+
     <%= yield %>
   </body>
 </html>

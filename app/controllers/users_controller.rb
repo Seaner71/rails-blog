@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    redirect_to '/', notice: "You are already logged in" if logged_in?
+    # redirect_to '/', notice: "You are already logged in" if logged_in?
     @user = User.new
   end
 
@@ -14,19 +14,22 @@ class UsersController < ApplicationController
     if @user.save
         # session
       session[:user_id] = @user.id
-      redirect_to 'user_path(@user)'
+      redirect_to user_path(@user), notice: "Successfully signed up"
       # remember, user_path is the prefix accessible from running rake routes.
       # The \@\user parameter pulls the current user info from the get_user private method below
     else
-      redirect_to '/signup', notice: "An error prevented sign up"
-      # remember, new_user_path is the prefix accessible from running rake routes
+      redirect_to '/signup', notice: "An error prevented sign up: \n#{@user.errors.full_messages.join('/n')}"
+
     end
   end
   def edit
     @user = User.find_by_id(params[:id])
+    @current_user = User.find_by_id(session[:user_id])  
   end
   def show
-    @user = User.find_by_id(session[:user_id])
+    @user = User.find_by_id(params[:id])
+    @current_user = User.find_by_id(session[:user_id])
+
   end
   def destroy
     @user.destroy
@@ -35,7 +38,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:username)
+      params.require(:user).permit(:username, :password)
     end
 
     def get_user
