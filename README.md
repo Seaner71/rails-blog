@@ -8,10 +8,7 @@
 ### Apllication similar to tumblr, a user can create a blog post and comment on other blog posts
 
 - uses 3 models *User* *Post* and *Comment* 
-
-* Ruby version
-
-* System dependencies
+- db schema 
 
 * Configuration
 
