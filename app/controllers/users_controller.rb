@@ -2,11 +2,13 @@ class UsersController < ApplicationController
   before_action :get_user, only: [:show, :destroy, :edit]
   def index
     @users = User.all
+    @current_user = User.find_by_id(session[:user_id])
   end
 
   def new
     # redirect_to '/', notice: "You are already logged in" if logged_in?
     @user = User.new
+    @current_user = User.find_by_id(session[:user_id])
   end
 
   def create
@@ -24,7 +26,7 @@ class UsersController < ApplicationController
   end
   def edit
     @user = User.find_by_id(params[:id])
-    @current_user = User.find_by_id(session[:user_id])  
+    @current_user = User.find_by_id(session[:user_id])
   end
   def show
     @user = User.find_by_id(params[:id])

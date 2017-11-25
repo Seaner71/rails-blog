@@ -6,10 +6,11 @@ class PostsController < ApplicationController
 
   def show
     @posts = Post.all
-
+    @current_user = User.find_by_id(session[:user_id])
   end
   def index
     @posts = Post.all
+    @current_user = User.find_by_id(session[:user_id]) 
   end
   def create
     # we don't need @ - (user as instance variable) because we only need instance variables when we need to render something in the view.  The point of having an instance variable in any of our controller methods, IS THAT THEY ARE THEN ACCESSIBLE BY OUR VIEW.  IF A VARIABLE IS NOT AN INSTANCE VARIABLE (@) THEN THE VIEW DOES NOT HAVE ACCESS TO THAT VARIABLE.
@@ -20,7 +21,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to users_path
+    redirect_to posts_path
   end
   private
 

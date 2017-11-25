@@ -2,8 +2,7 @@
 <% if @user == User.find_by_id(session[:user_id]) %>
 <%= link_to "Edit User",  edit_user_path %><br>
 <% end %>
-<%= @user.id %>
-<%= @current_user.id %>
+
 
 <h3><%= @user.username %>'s Posts</h3>
 
@@ -17,9 +16,12 @@
       <%= link_to post.title, user_post_path(@user, post) %> -
       Posted on: <%= post.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
     </li>
+      <% if @user.id == @current_user.id %>
+        <%= link_to "Delete Post", post, method: 'delete', local: true %>
+      <% end %>
   <% end %>
 </ul>
-
+  <% if @user.id == @current_user.id %>
 <div>
   <h3>Add a post</h3>
   <%= form_with(model: Post.new, local: true) do |f| %>
@@ -36,5 +38,5 @@
     <%= f.submit %>
   <% end %>
 </div>
-
+  <% end %>
 <%= link_to 'Back', users_path %>

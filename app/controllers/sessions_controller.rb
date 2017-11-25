@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
     # redirect_to '/', notice: "You are already logged in" if logged_in?
+    @current_user = User.find_by_id(session[:user_id]) 
   end
 
   def create
