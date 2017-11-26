@@ -1,7 +1,7 @@
-<h1>Post Title: <%= @post.title %></h1>
-<h3>Post Id: <%= @post.id %></h3>
-<%= @post.user_id %>
-<%= @post.user.username %>
+<h1><%= @post.user.username %>'s Posts</h1>
+
+<h3>Post Title: <%= @post.title %></h3>
+ <br>
 <%= @post.content %>
 
 
@@ -14,22 +14,21 @@
       <%= comment.user.username %>
       <%= comment.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
     </li>
+    <% if @post.user.id == @current_user.id %>
+    --
+    <%= link_to 'Delete comment', @comment, method: 'delete', local: true %>
+    <% end %>
   <% end %>
 </ul>
-
 <%= link_to 'Back to posts', posts_path %>
 <% if @post.user.id == @current_user.id %>
-<%# link_to 'Delete post', @post, method: 'delete', local: true %>
+--
+<%= link_to 'Delete post', @post, method: 'delete', local: true %>
 <% end %>
-<%= link_to "this post", post_path(@post) %>
 
 
-<br>
-<%# @post.id %>
-<br>
-<%# @post.user.id %>
-<div>
   <h3>Add a comment</h3>
+  <div class='form-group'>
   <%= form_with(model: Comment.new, local: true) do |f| %>
     <%= hidden_field_tag :post_id, @post.id %>
     <%= hidden_field_tag :user_id, @post.user_id %>
@@ -40,4 +39,4 @@
 
     <%= f.submit %>
   <% end %>
-</div>
+  </div>
