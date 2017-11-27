@@ -1,20 +1,22 @@
 <% @posts.last(10).reverse_each do |post| %>
-  <li>
+  <div class="post-box">
     <%= link_to post.title, post %>
     <br>
-    posted by: <%= post.user.username %>
+    posted by: <%= link_to post.user.username, user_path(post.user) %>
     <br>
     Posted on: <%= post.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
-    <br>
-      <%= 'No Comments yet' if post.comments.empty? %>
-    <br>
-    <ul>
-      <% post.comments.last(3).reverse.each do |comment| %>
-      <li><%= comment.text %> </li>
-      <% end %>
-    </ul>
 
 
-  </li>
+    <div class="comment-box">
+        <strong>Comments</strong><br>
+        <%= 'No Comments yet' if post.comments.empty? %>
+    
+        <% post.comments.last(3).reverse.each do |comment| %>
+        <li><%=comment.text %> </li>
+        <% end %>
+
+    </div>
+ </div>
+
+
 <% end %>
-</ul>

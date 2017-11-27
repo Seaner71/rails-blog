@@ -1,3 +1,50 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+
+}
+
+.user-card {
+  height: 100px;
+  border: 1px solid white;
+
+}
+.user-card:hover {
+  background-color: rgba(0,0,255,0.3);
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
+}
+.user-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  padding: 5px;
+}
+.user-name a{
+  color: #fff;
+  text-decoration: none;
+}
+.user-post {
+  justify-content: right;
+  padding: 3px;
+  list-style: circle;
+  text-decoration: none;
+  color: rgba(0,0,255,0.7);
+}
+.user-post a{
+  color: rgba(0,0,255,0.7 );
+  text-decoration: none;
+}
+
+@media all and (max-width: 900px) {
+  .user-grid {
+    grid-template-columns: 100%;
+  }
+
+}

@@ -1,16 +1,22 @@
 <h1>Users list</h1>
 
-<ul>
+<div class="user-grid">
   <% @users.each do |user| %>
-  <li>
+    <article class="user-card">
+    <div class="user-name">
     <%= link_to user.username, user %>
-    <ul>
+    </div>
+    <article class="user-post">
+    <% user.posts.last(3).reverse.each do |post| %>
 
-      <% user.posts.last(3).reverse.each do |post| %>
-      <li><%= link_to post.title, post %> </li> 
-      <% end %>
-    </ul>
+    <li><%= link_to post.title, post %></li>
+
     <% end %>
-  </li>
+    </article>
+    </article>
 
-</ul>
+    <% end %>
+
+
+
+</div>
