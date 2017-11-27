@@ -29,12 +29,14 @@ class UsersController < ApplicationController
     @current_user = User.find_by_id(session[:user_id])
   end
 
+ # attempt to PUT/PATCH user information via form on users edit view
   def update
     @user = User.find_by_id(params[:id])
-    if @user.update_attribute(params[:email])
+    @current_user = User.find_by_id(session[:user_id])
+      if @user.update(user_params)
       redirect_to user_path, notice: 'Successfully updated!'
     else
-      render :edit
+      render :edit, notice: "An error prevented update: #{@user.errors.full_messages.join('---')}"
     end
   end
 
@@ -42,7 +44,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     @current_user = User.find_by_id(session[:user_id])
 
-  end 
+  end
   def destroy
     @user.destroy
     redirect_to'/signup'
