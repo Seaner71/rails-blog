@@ -9,17 +9,9 @@
 
 - uses 3 models *User* *Post* and *Comment* 
 - db schema 
+- allows you to create a user, that user can then create a post and comment on their own or other users posts
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
 
-* ...
+- to deploy fork the code, run a local Rails server.
