@@ -1,24 +1,26 @@
+
 <h1><%= @user.username %></h1>
 
 
 <%= form_with(model: @user, local: true) do |f| %>
+  <div class="form-group">
+    <%= f.label :username %> <br>
+    <%= f.text_field :username %> <br>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %> <br>
+    <%= f.text_field :password %> <br>
+  </div>
 
-<div class="form-group">
-  <%= f.label :username %> <br>
-  <%= f.text_field :username %> <br>
-</div>
+  <div class="form-group">
+    <%= f.label :email %> <br>
+    <%= f.email_field :email %> <br> <br>
+  </div>
 
-<div class="form-group">
-  <%= f.label :email %> <br>
-  <%= f.email_field :email %> <br> <br>
-</div>
-
-<div class="form-group">
-  <%= f.submit "Edit"%> <br> <br>
-</div>
+  <div class="form-group">
+    <%= f.submit "Edit"%> <br> <br>
+  </div>
 <% end %>
 
-<%= link_to 'Back', user_path %> --
-<%= link_to 'Delete', @user, method: 'delete', local: true %>
-
-  <p id="notice"><%= notice %></p>
+<button><%= link_to 'Back', user_path %> </button> ||
+<button><%= link_to 'Delete', @user, method: 'delete', local: true %> </button>

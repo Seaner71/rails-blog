@@ -44,7 +44,7 @@
 .user-profile {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  
+
 }
 
 
@@ -52,5 +52,7 @@
   .user-grid {
     grid-template-columns: 100%;
   }
-
+  .user-profile {
+    grid-template-columns: 1fr;
+  }
 }

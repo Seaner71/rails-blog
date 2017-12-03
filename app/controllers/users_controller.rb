@@ -34,10 +34,10 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     @current_user = User.find_by_id(session[:user_id])
       if @user.update(user_params)
-      redirect_to user_path, notice: 'Successfully updated!'
-    else
-      render :edit, notice: "An error prevented update: #{@user.errors.full_messages.join('---')}"
-    end
+        redirect_to user_path, notice: 'Successfully updated!'
+      else
+        redirect_to edit_user_path, notice: "An error prevented update: #{@user.errors.full_messages}"
+      end
   end
 
   def show
