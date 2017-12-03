@@ -41,6 +41,12 @@
   color: rgba(0,0,255,0.7 );
   text-decoration: none;
 }
+.user-profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
 
 @media all and (max-width: 900px) {
   .user-grid {
