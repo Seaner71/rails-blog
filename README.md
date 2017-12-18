@@ -15,23 +15,23 @@ Run on your computer:
 
 From your project folder, clone the git repository:
 
-  git clone https://github.com/Seaner71/rails-blog.git
+    git clone https://github.com/Seaner71/rails-blog.git
 
 Open the project folder:
 
-  cd rails-blog
+    cd rails-blog
   
 Install all dependencies:
 
-  bundle install
+    bundle install
   
 Create the database:
 
-  rake db:migrate
+    rake db:migrate
 
 Run the application:
 
-rails server
+    rails server
 
 To see the application in action, open a browser window and navigate to http://localhost:3000.
 
