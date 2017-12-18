@@ -9,9 +9,10 @@
 
 - uses 3 models *User* *Post* and *Comment* 
 - allows you to create a user, that user can then create a post and comment on their own or other users posts
+- DB Schema
 
 ```
-ctiveRecord::Schema.define(version: 20171124184111) do
+ActiveRecord::Schema.define(version: 20171124184111) do
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
